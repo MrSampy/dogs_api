@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Data.Interfaces
 {
-    public class IUnitOfWork
+    public interface IUnitOfWork
     {
         IRepository<Dog> DogRepository { get; }
     }
