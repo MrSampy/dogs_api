@@ -21,7 +21,7 @@ namespace DogsApi.Tests.Data.Tests
             var context = new DogAPIDBContext(new DbContextOptionsBuilder<DogAPIDBContext>()
                 .EnableSensitiveDataLogging()
                 .UseInMemoryDatabase(databaseName: "Test_Database").Options, ensureDeleted: true);
-            await DataSeeder.SeedData(context);
+            await TestUtilities.SeedData(context);
             return new DogRepository(context);
         }
 
@@ -30,18 +30,7 @@ namespace DogsApi.Tests.Data.Tests
         {
             // Arrange
             var repository = await CreateRepositoryAsync();
-            var expectedDogs = new List<Dog>();
-            for (int index = 1; index <= 20; ++index)
-            {
-                var dog = new Dog
-                {
-                    Name = $"Dog {index}",
-                    Color = $"Color {index}",
-                    TailLength = index + 5,
-                    Weight = index + 20,
-                };
-                expectedDogs.Add(dog);
-            }
+            var expectedDogs = TestUtilities.CreateDogs();
             // Act
             var actualDogs = await repository.GetAllAsync();
 
