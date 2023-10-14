@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Data.Entities;
+﻿using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Business.Models
 {
     public class DogModel
     {
-        public string Name { get; set; }
-        public string Color { get; set; }
+        public string? Name { get; set; }
+        public string? Color { get; set; }
+        [JsonPropertyName("tail_length")]
+        [JsonProperty("tail_length")]
         public int TailLength { get; set; }
         public int Weight { get; set; }
 

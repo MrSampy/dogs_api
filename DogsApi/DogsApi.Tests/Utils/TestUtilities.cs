@@ -12,12 +12,20 @@ namespace DogsApi.Tests.Utils
 {
     public class TestUtilities
     {
-        public static async Task SeedData(DogAPIDBContext context) 
+        public static async Task SeedDataAsync(DogAPIDBContext context) 
         {
             var dogs = CreateDogs();
             await context.Dogs.AddRangeAsync(dogs);
             await context.SaveChangesAsync();
         }
+
+        public static void SeedData(DogAPIDBContext context)
+        {
+            var dogs = CreateDogs();
+            context.Dogs.AddRange(dogs);
+            context.SaveChanges();
+        }
+
 
         public static List<Dog> CreateDogs()
         {

@@ -53,6 +53,7 @@ namespace Business.Services
             {
                 result = Sort(result, filterModel.Attribute.ToLower(), filterModel.Order.ToLower());
             }
+            CacheService.Set(cacheKey, result, TimeSpan.FromMinutes(10));
             return result;
 
         }

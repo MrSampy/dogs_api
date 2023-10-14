@@ -16,7 +16,7 @@ namespace DogsApi.Tests.Business.Tests
             var context = new DogAPIDBContext(new DbContextOptionsBuilder<DogAPIDBContext>()
                 .EnableSensitiveDataLogging()
                 .UseInMemoryDatabase(databaseName: "Test_Database").Options, ensureDeleted: true);
-            await TestUtilities.SeedData(context);
+            await TestUtilities.SeedDataAsync(context);
             var unitOfWork = TestUtilities.CreateUnitOfWork(context);
             var mapper = TestUtilities.CreateMapper();
             var cacheService = TestUtilities.CreateCacheService();
