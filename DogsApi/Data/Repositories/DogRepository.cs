@@ -20,10 +20,10 @@ namespace Data.Repositories
         }
 
         public async Task AddAsync(Dog entity)
-        {
+        {            
             await Context.Dogs.AddAsync(entity);
 
-            Context.SaveChanges();
+            await Context.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<Dog>> GetAllAsync()
