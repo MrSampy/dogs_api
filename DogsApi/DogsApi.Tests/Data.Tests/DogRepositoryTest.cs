@@ -21,7 +21,7 @@ namespace DogsApi.Tests.Data.Tests
             var context = new DogAPIDBContext(new DbContextOptionsBuilder<DogAPIDBContext>()
                 .EnableSensitiveDataLogging()
                 .UseInMemoryDatabase(databaseName: "Test_Database").Options, ensureDeleted: true);
-            await TestUtilities.SeedData(context);
+            await TestUtilities.SeedDataAsync(context);
             return new DogRepository(context);
         }
 
