@@ -16,8 +16,8 @@ namespace Data.Data
             if (ensureDeleted)
             {
                 Database.EnsureDeleted();
+                Database.EnsureCreated();
             }
-            Database.EnsureCreated();
         }
 
     }
