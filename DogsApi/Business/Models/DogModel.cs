@@ -1,12 +1,14 @@
-﻿using System.Text.Json.Serialization;
+﻿using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Business.Models
 {
     public class DogModel
     {
-        public string Name { get; set; }
-        public string Color { get; set; }
+        public string? Name { get; set; }
+        public string? Color { get; set; }
         [JsonPropertyName("tail_length")]
+        [JsonProperty("tail_length")]
         public int TailLength { get; set; }
         public int Weight { get; set; }
 
